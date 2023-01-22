@@ -55,7 +55,11 @@ export default function Navbar({ pokemonFilter }) {
         <Toolbar>
           <Box display="flex" justifyContent="space-between" width="100%">
             
+<<<<<<< HEAD
             <Box component='img' src="/assets/pokeLogo.png" height="2em" sx={{cursor: "pointer"}} />
+=======
+            <Box component='img' src='assets/pokeLogo.png' height="3em" sx={{cursor: "pointer"}} />
+>>>>>>> b06bb85a9e66a27aee7adc0217da8f50402a443a
 
             <Search onChange={(e) => pokemonFilter(e.target.value)}>
                 <SearchIconWrapper>
