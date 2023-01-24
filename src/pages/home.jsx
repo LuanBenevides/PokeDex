@@ -1,27 +1,32 @@
-import { Grid } from "@mui/material";
+import { Grid, Pagination } from "@mui/material";
 import { Container } from "@mui/system";
 import axios from "axios";
-import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import PokemonCard from "../components/PokemonCard";
+import PokePagination from "../components/PokePagination";
 import { Skeletons } from "../components/Skeletons";
+
 
 export const Home = () => {
 
     const [pokemons, setPokemons] = useState([]);
+    const [limit, setLimit] = useState(54);
+    const [offSet, setOffSet] = useState(0);
+    const [pagina, setPagina] = useState(1);
 
     useEffect(() => {
-        getPokemons()
-    }, []);
-    
+        getPokemons();
+    }, [pagina]);
+
     const getPokemons = () => {
 
         var endpoints = [];
 
-        for(var i = 1; i <= 1010; i++){
+        let offset = pagina * limit - limit;
 
+        for (var i = offset + 1; i <= limit * pagina; i++){
             endpoints.push( `https://pokeapi.co/api/v2/pokemon/${i}/`)
         }
 
@@ -62,6 +67,8 @@ export const Home = () => {
                 </Grid>
                 
             </Container>
+            <PokePagination page={pagina} setPagina={setPagina}/>
         </div>
     );
+    
 }
