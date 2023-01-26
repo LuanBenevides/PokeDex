@@ -12,7 +12,7 @@ import { Skeletons } from "../components/Skeletons";
 export const Home = () => {
 
     const [pokemons, setPokemons] = useState([]);
-    const [limit, setLimit] = useState(54);
+    const [limit, setLimit] = useState(60);
     const [offSet, setOffSet] = useState(0);
     const [pagina, setPagina] = useState(1);
 
@@ -55,19 +55,26 @@ export const Home = () => {
     return(
         <div>
             <Navbar pokemonFilter={pokemonFilter}/>
+            
             <Container maxWidth="false">
                 <Grid container spacing={3}>
                     {pokemons.length === 0 ? <Skeletons/> : 
                       pokemons.map((pokemon, key) => (
-                        <Grid item  xs={12} sm={6} md={4} lg={2} key={key}>
-                            <PokemonCard name={pokemon.data.name} image={pokemon.data.sprites.front_default} types={pokemon.data.types}/>
+                        <Grid item lg={2} md={4} sm={6} xs={12} key={key}>
+                            <PokemonCard id="card" keyId={pokemon.data.id} name={pokemon.data.name} 
+                            image={pokemon.data.sprites.other.dream_world.front_default}
+                            types={pokemon.data.types}
+                            weight={pokemon.data.weight}
+                            height={pokemon.data.height}
+                            stats={pokemon.data.stats}
+                            />
                         </Grid>
                       ))
                     }
                 </Grid>
                 
             </Container>
-            <PokePagination page={pagina} setPagina={setPagina}/>
+            <PokePagination page={pagina} setPagina={setPagina} />
         </div>
     );
     
