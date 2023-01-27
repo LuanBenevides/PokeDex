@@ -12,7 +12,7 @@ import { Skeletons } from "../components/Skeletons";
 export const Home = () => {
 
     const [pokemons, setPokemons] = useState([]);
-    const [limit, setLimit] = useState(60);
+    const [limit, setLimit] = useState(120);
     const [offSet, setOffSet] = useState(0);
     const [pagina, setPagina] = useState(1);
 

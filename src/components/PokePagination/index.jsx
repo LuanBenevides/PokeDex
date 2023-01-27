@@ -12,7 +12,7 @@ export default function PokePagination(props) {
 
   return (
     <Stack spacing={2} display="flex" alignItems="center" margin="2em">
-      <Pagination count={20} page={props.page} onChange={handleChange} variant="outlined" shape="rounded" size="large"/>
+      <Pagination count={10} page={props.page} onChange={handleChange} variant="outlined" shape="rounded" size="large"/>
     </Stack>
   );
 }
